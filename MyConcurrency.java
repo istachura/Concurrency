@@ -6,7 +6,7 @@ class Concurrency extends Thread{
 	public void run() {
 		
 		int[] randomNumber = new int [200000000];
-		
+		int sum=0;
 		for (int i = 0; i < 10; i++)
 		{
 			randomNumber[i]= (int) (Math.random()*200000000);
@@ -15,6 +15,12 @@ class Concurrency extends Thread{
 		{
 	         System.out.println( Thread.currentThread().getId() + " Value " + randomNumber[i]);         
 	    }
+		
+		for (int i = 0; i < 10; i++)
+		{	
+			sum=sum+randomNumber[i];
+		
+	}
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
